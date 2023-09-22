@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -34,5 +36,20 @@ public class StudentService {
             studentDTOList.add(StudentDTO.toSaveDTO(entity));
         });
         return studentDTOList;
+    }
+
+    public StudentDTO findById(Long id) {
+//        Optional<StudentEntity> optionalStudentEntity = studentRepository.findById(id);
+//        if (optionalStudentEntity.isPresent()) {
+//            // 있다.
+//            StudentEntity studentEntity = optionalStudentEntity.get();
+//            return StudentDTO.toSaveDTO(studentEntity);
+//        } else {
+//            // 없다.
+//            return null;
+//        }
+        // Optional 객체를 까는데 만약에 없다면 예외 처리
+        StudentEntity studentEntity = studentRepository.findById(id).orElseThrow(() -> new NoSuchElementException());
+        return StudentDTO.toSaveDTO(studentEntity);
     }
 }
