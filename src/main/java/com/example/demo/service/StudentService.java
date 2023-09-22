@@ -30,9 +30,9 @@ public class StudentService {
             List<StudentEntity> -> List<StudentDTO>로 옮겨 담는 코드 작성
             Entity -> DTO 변환하는 메서드느 DTO에 정의
          */
-        for(StudentEntity studentEntity : studentEntityList){
-            studentDTOList.add(StudentDTO.toSaveDTO(studentEntity));
-        }
+        studentEntityList.forEach(entity -> {
+            studentDTOList.add(StudentDTO.toSaveDTO(entity));
+        });
         return studentDTOList;
     }
 }
