@@ -59,4 +59,10 @@ public class StudentController {
         studentService.update(studentDTO);
         return "redirect:/students";
     }
+
+    @GetMapping("/student/delete/{id}")
+    public String delete(@PathVariable("id") Long id){
+        studentService.delete(id);
+        return "redirect:/students";
+    }
 }
