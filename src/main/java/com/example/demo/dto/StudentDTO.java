@@ -16,13 +16,13 @@ public class StudentDTO {
     private String studentMobile;
     private String studentMajor;
 
-    public static StudentDTO toSaveDTO(StudentEntity studentEntity) {
+    public static StudentDTO toSaveDTO(StudentEntity studentEntity){
         StudentDTO studentDTO = new StudentDTO();
-        studentDTO.id = studentEntity.getId();
-        studentDTO.studentNumber = studentEntity.getStudentNumber();
-        studentDTO.studentName = studentEntity.getStudentName();
-        studentDTO.studentMobile = studentEntity.getStudentMobile();
-        studentDTO.studentMajor = studentEntity.getStudentMajor();
+        studentDTO.setId(studentEntity.getId());
+        studentDTO.setStudentNumber(studentEntity.getStudentNumber());
+        studentDTO.setStudentName(studentEntity.getStudentName());
+        studentDTO.setStudentMobile(studentEntity.getStudentMobile());
+        studentDTO.setStudentMajor(studentEntity.getStudentMajor());
         return studentDTO;
     }
 }

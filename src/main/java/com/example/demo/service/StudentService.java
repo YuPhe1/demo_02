@@ -31,8 +31,7 @@ public class StudentService {
             Entity -> DTO 변환하는 메서드느 DTO에 정의
          */
         for(StudentEntity studentEntity : studentEntityList){
-            StudentDTO studentDTO = StudentDTO.toSaveDTO(studentEntity);
-            studentDTOList.add(studentDTO);
+            studentDTOList.add(StudentDTO.toSaveDTO(studentEntity));
         }
         return studentDTOList;
     }
