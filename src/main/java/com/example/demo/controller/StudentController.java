@@ -43,4 +43,20 @@ public class StudentController {
             return "NotFound";
         }
     }
+    @GetMapping("/student/update/{id}")
+    public String update(@PathVariable("id") Long id, Model model) {
+        try {
+            StudentDTO studentDTO = studentService.findById(id);
+            model.addAttribute("student", studentDTO);
+            return "update";
+        } catch (NoSuchElementException e) {
+            return "NotFound";
+        }
+    }
+
+    @PostMapping("/student/update")
+    public String update(@ModelAttribute StudentDTO studentDTO){
+        studentService.update(studentDTO);
+        return "redirect:/students";
+    }
 }
