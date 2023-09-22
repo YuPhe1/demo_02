@@ -3,11 +3,18 @@ package com.example.demo.entity;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "demo_table")
 public class DemoEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)  // auto_increment
     private Long id;
 
-    @Column
+    @Column(name = "student_name")
     private String name;
+
+    @Column(length = 30, nullable = false, unique = true)
+    private String mobile;
+
+    @Column
+    private String studentAddress;
 }
